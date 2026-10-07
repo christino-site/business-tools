@@ -3,7 +3,7 @@
 /* ===== CONFIGURATION : liens du pied de page (accueil) =====
    Colle ton lien entre les guillemets. Un bouton reste caché tant que son lien est vide. */
 const TIP_URL = '';      // bouton « Donner un pourboire », ex. 'https://paypal.me/tonnom'
-const SUPPORT_URL = '';  // bouton « Assistance », ex. 'https://wa.me/22900000000' ou 'mailto:contact@exemple.com'
+const SUPPORT_URL = 'https://wa.me/22951393126';  // bouton « Assistance », ex. 'https://wa.me/22900000000' ou 'mailto:contact@exemple.com'
 
 /* =====================================================================
    Business Tools – 100 % navigateur, JavaScript vanilla, zéro dépendance
