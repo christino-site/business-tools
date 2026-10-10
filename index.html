@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Tools – Boîte à outils gratuite pour entrepreneurs</title>
+  <meta name="description" content="Calculateur de bénéfice, factures et devis, messages WhatsApp : des outils gratuits qui fonctionnent dans votre navigateur.">
+  <link rel="stylesheet" href="style.min.css?v=2">
+</head>
+<body>
+
+<!-- Bande promotionnelle : affichée sur l'accueil seulement (voir route() dans script.js) -->
+<div class="promo-bar no-print" id="promoBar" role="region" aria-label="Annonce : outils personnalisés" hidden>
+  <div class="promo-viewport">
+    <div class="promo-track" id="promoTrack">
+      <div class="promo-group">
+        <span class="promo-item">Vous souhaitez un outil adapté aux besoins de votre entreprise ? Nous le personnalisons pour vous ! <a class="promo-cta" id="promoCta" target="_blank" rel="noopener noreferrer">Contactez-nous pour en discuter</a>.</span>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="promo-pause" id="promoPause" aria-pressed="false" aria-label="Mettre en pause le défilement"></button>
+</div>
+
+<header class="topbar no-print">
+  <button type="button" class="brand" data-go="home"><span class="logo-mark" aria-hidden="true">BT</span>Business Tools</button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Ouvrir ou fermer le menu"><span aria-hidden="true">☰</span></button>
+  <nav class="site-nav" id="siteNav" aria-label="Navigation principale">
+    <button type="button" class="btn btn-ghost" id="homeBtn" data-go="home" hidden>← Accueil</button>
+    <button type="button" class="nav-link" data-scroll="tools">Outils</button>
+    <button type="button" class="nav-link" data-scroll="features">Pourquoi Business Tools</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===================== ACCUEIL ===================== -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <p class="eyebrow">Boîte à outils gratuite pour entrepreneurs</p>
+      <h1 tabindex="-1">Tous vos outils professionnels au même endroit</h1>
+      <p class="hero-sub">Simplifiez votre gestion commerciale, gagnez du temps et développez votre activité grâce à des outils pratiques conçus pour les entrepreneurs.</p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary" data-scroll="tools">Découvrir les outils</button>
+        <button type="button" class="btn btn-ghost" data-scroll="features">Explorer les fonctionnalités</button>
+      </div>
+    </div>
+
+    <section class="scroll-target" id="tools" aria-labelledby="toolsTitle">
+      <h2 class="section-title" id="toolsTitle">Nos outils</h2>
+
+      <h3 class="cat-title">Gestion commerciale</h3>
+      <div class="cards">
+        <article class="card tool-card">
+          <span class="icon" aria-hidden="true">🧮</span>
+          <h4>Calculateur de bénéfice</h4>
+          <p>Calculez vos coûts, vos dépenses et votre bénéfice pour mieux maîtriser la rentabilité de votre activité.</p>
+          <button type="button" class="btn btn-primary" data-go="calc" aria-label="Utiliser l'outil : Calculateur de bénéfice">Utiliser cet outil</button>
+        </article>
+        <article class="card tool-card">
+          <span class="icon" aria-hidden="true">🧾</span>
+          <h4>Facture &amp; devis</h4>
+          <p>Créez des factures et des devis professionnels à imprimer, avec votre logo, vos modalités et vos moyens de paiement.</p>
+          <button type="button" class="btn btn-primary" data-go="invoice" aria-label="Utiliser l'outil : Facture &amp; devis">Utiliser cet outil</button>
+        </article>
+      </div>
+
+      <h3 class="cat-title">Communication client</h3>
+      <div class="cards">
+        <article class="card tool-card">
+          <span class="icon" aria-hidden="true">📱</span>
+          <h4>Générateur WhatsApp</h4>
+          <p>Préparez rapidement des messages professionnels (commande, paiement, livraison, relance…) prêts à envoyer à vos clients.</p>
+          <button type="button" class="btn btn-primary" data-go="whatsapp" aria-label="Utiliser l'outil : Générateur WhatsApp">Utiliser cet outil</button>
+        </article>
+        <article class="card tool-card">
+          <span class="icon" aria-hidden="true">🔗</span>
+          <h4>Lien WhatsApp direct</h4>
+          <p>Créez un lien qui permet à vos clients de vous écrire directement sur WhatsApp, avec un message prérempli.</p>
+          <button type="button" class="btn btn-primary" data-go="walink" aria-label="Utiliser l'outil : Lien WhatsApp direct">Utiliser cet outil</button>
+        </article>
+      </div>
+
+      <h3 class="cat-title">Outils pratiques</h3>
+      <div class="cards">
+        <article class="card tool-card">
+          <span class="icon" aria-hidden="true">📏</span>
+          <h4>Convertisseur de mesures</h4>
+          <p>Convertissez facilement les unités de longueur, de poids, de volume, de surface et de température, ainsi que des dimensions.</p>
+          <button type="button" class="btn btn-primary" data-go="converter" aria-label="Utiliser l'outil : Convertisseur de mesures">Utiliser cet outil</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="features scroll-target" id="features" aria-labelledby="featTitle">
+      <h2 class="section-title" id="featTitle">Pourquoi Business Tools ?</h2>
+      <div class="feature-grid">
+        <div class="feature"><span aria-hidden="true">🆓</span><h3>Gratuit et sans inscription</h3><p>Aucun compte à créer : vous ouvrez un outil et vous l'utilisez.</p></div>
+        <div class="feature"><span aria-hidden="true">📱</span><h3>Pensé pour le téléphone</h3><p>Les outils s'adaptent aux petits écrans comme aux ordinateurs.</p></div>
+        <div class="feature"><span aria-hidden="true">🔒</span><h3>Vos saisies restent chez vous</h3><p>Factures, calculs et messages sont traités dans votre navigateur.</p></div>
+        <div class="feature"><span aria-hidden="true">🖨️</span><h3>Documents prêts à imprimer</h3><p>Factures et devis s'impriment ou s'enregistrent en PDF.</p></div>
+      </div>
+    </section>
+
+    <p class="privacy">Ce que vous saisissez (factures, calculs, messages) reste dans votre navigateur. Seules des statistiques de visite anonymes peuvent être mesurées.</p>
+
+    <footer class="site-footer no-print" id="siteFooter" hidden>
+      <p>Business Tools est gratuit. S'il vous est utile, vous pouvez soutenir le projet.</p>
+      <div class="footer-actions">
+        <a class="btn btn-primary" id="tipLink" target="_blank" rel="noopener noreferrer" hidden>☕ Donner un pourboire</a>
+        <a class="btn btn-ghost" id="supportLink" target="_blank" rel="noopener noreferrer" hidden>🛟 Assistance</a>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ===================== CALCULATEUR ===================== -->
+  <section class="view" id="view-calc" hidden>
+    <h1 tabindex="-1">🧮 Calculateur de bénéfice</h1>
+    <p class="lead no-print">Tous les montants sont en FCFA. Les résultats se mettent à jour automatiquement.</p>
+
+    <div class="calc-layout">
+      <form id="calcForm" class="card" novalidate>
+        <fieldset>
+          <legend>Produit</legend>
+          <div class="field"><label>Nom du produit (facultatif)<input id="pname" type="text" autocomplete="off"></label></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Coûts</legend>
+          <div class="grid2">
+            <div class="field"><label>Prix d'achat unitaire<input id="buy" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="buy-err" required></label><small class="err" id="buy-err" role="alert"></small></div>
+            <div class="field"><label>Quantité<input id="qty" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="qty-err" required></label><small class="err" id="qty-err" role="alert"></small></div>
+            <div class="field"><label>Transport<input id="transport" class="cost" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+            <div class="field"><label>Douane / taxes<input id="customs" class="cost" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+            <div class="field"><label>Publicité<input id="ads" class="cost" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+            <div class="field"><label>Emballage<input id="pack" class="cost" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+            <div class="field"><label>Livraison<input id="delivery" class="cost" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+            <div class="field"><label>Autres dépenses<input id="other" class="cost" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Vente</legend>
+          <div class="field"><label>Prix de vente unitaire<input id="sell" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="sell-err" required></label><small class="err" id="sell-err" role="alert"></small></div>
+        </fieldset>
+
+        <div class="actions no-print">
+          <button type="button" class="btn btn-ghost" id="calcReset">Réinitialiser</button>
+          <button type="button" class="btn btn-primary" id="calcPrint">🖨️ Imprimer / Enregistrer en PDF</button>
+        </div>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <p id="resEmpty" class="empty card">Renseignez le prix d'achat, la quantité et le prix de vente pour voir les résultats.</p>
+        <div id="resBody" hidden>
+          <p id="resProduct" class="res-product"></p>
+          <div id="verdict" class="verdict"></div>
+          <div class="stats">
+            <div class="stat"><span class="stat-l">Coût total</span><strong id="rTotal"></strong></div>
+            <div class="stat"><span class="stat-l">Chiffre d'affaires</span><strong id="rRevenue"></strong></div>
+            <div class="stat" id="statProfit"><span class="stat-l">Bénéfice</span><strong id="rProfit"></strong></div>
+            <div class="stat" id="statMargin"><span class="stat-l">Marge</span><strong id="rMargin"></strong></div>
+          </div>
+          <div class="stats stats-s">
+            <div class="stat"><span class="stat-l">Coût des produits</span><strong id="rProducts"></strong></div>
+            <div class="stat"><span class="stat-l">Coût réel par produit</span><strong id="rUnitCost"></strong></div>
+            <div class="stat"><span class="stat-l">Bénéfice par produit</span><strong id="rUnitProfit"></strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FACTURE & DEVIS ===================== -->
+  <section class="view" id="view-invoice" hidden>
+    <h1 class="no-print" tabindex="-1">🧾 Facture &amp; devis</h1>
+
+    <div class="invoice-layout">
+      <form id="invForm" class="card invoice-form no-print" novalidate>
+        <fieldset>
+          <legend>Type de document</legend>
+          <div class="segmented">
+            <label><input type="radio" name="docType" value="facture" checked><span>Facture</span></label>
+            <label><input type="radio" name="docType" value="devis"><span>Devis</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Design du document</legend>
+          <div class="segmented">
+            <label><input type="radio" name="docDesign" value="classic" checked><span>Classique</span></label>
+            <label><input type="radio" name="docDesign" value="modern"><span>Moderne</span></label>
+            <label><input type="radio" name="docDesign" value="minimal"><span>Minimal</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Vendeur</legend>
+          <div class="field"><label>Nom / entreprise *<input id="sName" type="text" autocomplete="organization"></label></div>
+          <div class="field">
+            <label>Ajouter un logo<input id="logoInput" type="file" accept="image/*"></label>
+            <small class="hint">Image choisie sur votre appareil, utilisée uniquement dans cet aperçu.</small>
+            <small class="err" id="logoMsg" role="alert"></small>
+            <button type="button" class="btn btn-ghost btn-sm" id="logoRemove" hidden>Supprimer le logo</button>
+          </div>
+          <div class="field"><label>Téléphone<input id="sPhone" type="tel" inputmode="tel" autocomplete="tel"></label></div>
+          <div class="field"><label>Adresse<textarea id="sAddr" rows="2"></textarea></label></div>
+          <div class="field"><label>Autres informations (NIF, e-mail, site…)<textarea id="sNote" rows="2"></textarea></label></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Client</legend>
+          <div class="field"><label>Nom *<input id="cName" type="text" autocomplete="off"></label></div>
+          <div class="field"><label>Téléphone<input id="cPhone" type="tel" inputmode="tel" autocomplete="off"></label></div>
+          <div class="field"><label>Adresse<textarea id="cAddr" rows="2"></textarea></label></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Document</legend>
+          <div class="grid2">
+            <div class="field"><label>Numéro<input id="dNum" type="text" value="FAC-001"></label></div>
+            <div class="field"><label>Date<input id="dDate" type="date"></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Produits</legend>
+          <div id="lines"></div>
+          <button type="button" class="btn btn-ghost" id="addLine">+ Ajouter un produit</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>Totaux</legend>
+          <div class="grid2">
+            <div class="field"><label>Réduction (FCFA)<input id="discount" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label><small class="err" id="discErr" role="alert"></small></div>
+            <div class="field"><label>Frais de livraison (FCFA)<input id="shipping" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Modalités de paiement</legend>
+          <div class="field"><label>Paiement<select id="payMode">
+            <option value="0">Ne pas afficher</option>
+            <option value="1">En 1 partie</option>
+            <option value="2">En 2 parties</option>
+            <option value="3">En 3 parties</option>
+          </select></label></div>
+          <div id="payParts"></div>
+          <small class="err" id="payErr" role="alert"></small>
+        </fieldset>
+
+        <fieldset>
+          <legend>Informations de paiement du vendeur (facultatif)</legend>
+          <p class="hint">Ajoutez vos moyens de paiement et, si vous en avez un, le QR code de votre application de paiement (image choisie sur votre appareil).</p>
+          <div id="pmRows"></div>
+          <button type="button" class="btn btn-ghost" id="addPayMethod">+ Ajouter un moyen de paiement</button>
+          <small class="err" id="pmMsg" role="alert"></small>
+        </fieldset>
+
+        <fieldset>
+          <legend>Personnalisation</legend>
+          <div class="field">
+            <label>Couleur du document<input id="docColor" type="color" value="#0e6b4f"></label>
+            <div class="swatches" id="docSwatches" role="group" aria-label="Couleurs proposées"></div>
+          </div>
+          <div class="field">
+            <label>Message de fin de document<input id="docThanks" type="text" value="Merci pour votre confiance." maxlength="120"></label>
+            <small class="hint">Laissez vide pour ne rien afficher.</small>
+          </div>
+        </fieldset>
+
+        <p class="err-box" id="invErr" role="alert" hidden></p>
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" data-go="home">↩️ Retour</button>
+          <button type="button" class="btn btn-primary" id="invPrint">🖨️ Imprimer / Enregistrer en PDF</button>
+        </div>
+      </form>
+
+      <div class="preview-wrap">
+        <article class="paper" aria-label="Aperçu du document">
+          <div class="p-head">
+            <div class="p-seller">
+              <img id="pLogo" alt="Logo du vendeur" hidden>
+              <strong id="pName"></strong>
+              <span id="pPhone"></span>
+              <span id="pAddr" class="pre"></span>
+              <span id="pNote" class="pre"></span>
+            </div>
+            <div class="p-meta">
+              <h2 id="pTitle">FACTURE</h2>
+              <p>Numéro : <strong id="pNum"></strong></p>
+              <p>Date : <strong id="pDate"></strong></p>
+            </div>
+          </div>
+
+          <div class="p-client">
+            <h3>Client</h3>
+            <strong id="pcName"></strong>
+            <span id="pcPhone"></span>
+            <span id="pcAddr" class="pre"></span>
+          </div>
+
+          <table class="p-table">
+            <thead><tr><th>Désignation</th><th class="num">Qté</th><th class="num">Prix</th><th class="num">Total</th></tr></thead>
+            <tbody id="pRows"></tbody>
+          </table>
+
+          <dl class="p-totals">
+            <div><dt>Sous-total</dt><dd id="pSub"></dd></div>
+            <div><dt>Réduction</dt><dd id="pDisc"></dd></div>
+            <div><dt>Livraison</dt><dd id="pShip"></dd></div>
+            <div class="grand"><dt>TOTAL</dt><dd id="pTotal"></dd></div>
+          </dl>
+
+          <div class="p-pay" id="pPay" hidden>
+            <h3>Modalités de paiement</h3>
+            <p id="pPayMode"></p>
+            <ul id="pPayList"></ul>
+            <p id="pPayRest" class="p-rest"></p>
+          </div>
+
+          <div class="p-methods" id="pMethods" hidden>
+            <h3>Informations de paiement</h3>
+            <div class="pm-list" id="pMethodsList"></div>
+          </div>
+
+          <p class="p-thanks">Merci pour votre confiance.</p>
+        </article>
+      </div>
+    </div>
+
+    <template id="lineTpl">
+      <div class="line">
+        <div class="field span2"><label>Désignation<input class="l-name" type="text" autocomplete="off"></label></div>
+        <div class="field"><label>Quantité<input class="l-qty" type="number" inputmode="decimal" min="0" step="any" value="1"></label></div>
+        <div class="field"><label>Prix unitaire<input class="l-price" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></label></div>
+        <p class="l-total">Total : <strong>0 FCFA</strong></p>
+        <button type="button" class="btn btn-danger btn-sm l-del" aria-label="Supprimer cette ligne">Supprimer</button>
+      </div>
+    </template>
+  </section>
+
+  <!-- ===================== GÉNÉRATEUR WHATSAPP ===================== -->
+  <section class="view" id="view-whatsapp" hidden>
+    <h1 tabindex="-1">📱 Générateur WhatsApp</h1>
+    <p class="lead">1. Choisissez le type de message.</p>
+    <div class="cat-grid" id="catGrid"></div>
+
+    <div id="waStep2" class="card" hidden>
+      <h2 id="waCatTitle"></h2>
+      <p class="lead">2. Remplissez les champs (* obligatoire), puis générez le message.</p>
+      <div class="grid2" id="waFields"></div>
+      <div class="field">
+        <label>Numéro WhatsApp du client (facultatif)<input id="waPhone" type="tel" inputmode="tel" placeholder="22997000000"></label>
+        <small class="hint">Avec l'indicatif du pays, sans « + » ni espaces. Sans numéro, WhatsApp vous laissera choisir le contact.</small>
+      </div>
+      <button type="button" class="btn btn-primary" id="waGenerate">Générer le message</button>
+
+      <div class="field msg-field">
+        <label>3. Message (vous pouvez le modifier)<textarea id="waMessage" rows="10"></textarea></label>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="waCopy">📋 Copier le message</button>
+        <button type="button" class="btn btn-primary" id="waOpen">💬 Ouvrir WhatsApp</button>
+      </div>
+      <p id="waStatus" class="status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ===================== CONVERTISSEUR DE MESURES ===================== -->
+  <section class="view" id="view-converter" hidden>
+    <h1 tabindex="-1">📏 Convertisseur de mesures</h1>
+    <p class="lead">Le résultat se met à jour automatiquement.</p>
+
+    <div class="card conv-card">
+      <div class="field"><label>Choisissez une catégorie<select id="convCategory"></select></label></div>
+
+      <div class="field"><label><span id="convValueLabel">Valeur</span><input id="convValue" type="text" inputmode="decimal" autocomplete="off"></label></div>
+      <div class="field" id="convValue2Wrap" hidden><label>Hauteur<input id="convValue2" type="text" inputmode="decimal" autocomplete="off"></label></div>
+      <small class="err" id="convErr" role="alert"></small>
+
+      <div class="grid2">
+        <div class="field"><label>De<select id="convFrom"></select></label></div>
+        <div class="field"><label>Vers<select id="convTo"></select></label></div>
+      </div>
+
+      <div class="actions no-print">
+        <button type="button" class="btn btn-ghost" id="convSwap">🔄 Inverser</button>
+        <button type="button" class="btn btn-ghost" id="convCopy">📋 Copier le résultat</button>
+        <button type="button" class="btn btn-ghost" id="convReset">🗑️ Réinitialiser</button>
+      </div>
+      <p id="convStatus" class="status" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="card conv-card conv-result" aria-live="polite">
+      <h2>Résultat</h2>
+      <p class="conv-out" id="convResult">—</p>
+      <p class="conv-eq" id="convEquation"></p>
+    </div>
+  </section>
+
+  <!-- ===================== LIEN WHATSAPP DIRECT ===================== -->
+  <section class="view" id="view-walink" hidden>
+    <h1 tabindex="-1">🔗 Lien WhatsApp direct</h1>
+    <p class="lead">Créez un lien qui ouvre une discussion avec votre numéro et un message prérempli : pratique pour une bio Instagram, une page Facebook ou une affiche.</p>
+
+    <div class="card link-card">
+      <div class="field">
+        <label>Numéro WhatsApp *<input id="wlPhone" type="tel" inputmode="tel" autocomplete="off" aria-describedby="wlErr"></label>
+        <small class="hint">Indicatif du pays puis numéro, sans « + » ni espaces.</small>
+        <small class="err" id="wlErr" role="alert"></small>
+      </div>
+      <div class="field">
+        <label>Message prérempli (facultatif)<textarea id="wlMessage" rows="5" placeholder="Bonjour, je suis intéressé(e) par votre produit."></textarea></label>
+      </div>
+    </div>
+
+    <div class="card link-card">
+      <div class="field">
+        <label>Votre lien<input id="wlLink" type="text" readonly placeholder="Le lien apparaît ici dès que le numéro est valide."></label>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="wlCopy">📋 Copier le lien</button>
+        <button type="button" class="btn btn-ghost" id="wlTest">💬 Tester le lien</button>
+        <button type="button" class="btn btn-ghost" id="wlReset">🗑️ Réinitialiser</button>
+      </div>
+      <p id="wlStatus" class="status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.min.js?v=2"></script>
+</body>
+</html>
